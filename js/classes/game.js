@@ -10,9 +10,11 @@ export default class Game{
      * @param {array} tab 
      */
     static checkLine(tab){
-
+        // parcours les lignes
         for (let line = 0; line < tab.length; line ++){
+            // parcours des celules 0,1,2,3 
             for ( let cell = 0; cell <= 2; cell ++){
+                // pour chacun des cellules on parcours le tableau de x + 4
                 let game_status = Game.checkJoueur1Line(tab[line].slice(cell, cell +  4))
                 if ( !game_status){
                     this.check_winner();
@@ -24,7 +26,11 @@ export default class Game{
       }
       
     }
-
+    /**
+     * analyse d'une ligne de 4 jetons
+     * @param {array} tab : tableau slicé de 0 à 4 
+     * @returns 
+     */
     static checkJoueur1Line(tab){
         Game.joueur_1 = 0;
         Game.joueur_2 = 0;
